@@ -9,6 +9,7 @@ import { AvisoPrivComponent } from './aviso-priv/aviso-priv.component';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CarruselComponent } from './components/carrusel/carrusel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AvisoPrivComponent,
     AcercaDeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CarruselComponent
   ],
   imports: [
     BrowserModule,
