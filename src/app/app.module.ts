@@ -10,6 +10,7 @@ import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
+import { CursosComponent } from './components/cursos/cursos.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CarruselComponent } from './components/carrusel/carrusel.component';
     AcercaDeComponent,
     NavbarComponent,
     FooterComponent,
-    CarruselComponent
+    CarruselComponent,
+    CursosComponent
   ],
   imports: [
     BrowserModule,
