@@ -3,14 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
-import { AvisoPrivComponent } from './aviso-priv/aviso-priv.component';
-import { AcercaDeComponent } from './acerca-de/acerca-de.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CarruselComponent } from './components/carrusel/carrusel.component';
-import { CursosComponent } from './components/cursos/cursos.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { AvisoPrivComponent } from './pages/aviso-priv/aviso-priv.component';
+import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
+import { CursosPageComponent } from './pages/cursos/cursos.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -19,14 +17,12 @@ import { CursosComponent } from './components/cursos/cursos.component';
     ErrorPageComponent,
     AvisoPrivComponent,
     AcercaDeComponent,
-    NavbarComponent,
-    FooterComponent,
-    CarruselComponent,
-    CursosComponent
+    CursosPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

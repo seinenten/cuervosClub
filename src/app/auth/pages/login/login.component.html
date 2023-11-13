@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<br>
+<br>
+<div class="container">
+    <div class="row px-3">
+        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+            <div class="img-left d-none d-md-flex"></div>
+
+            <div class="card-body">
+                <h4 class="title text-center mt-4">
+                    Inicio de Sesion
+                </h4>
+
+                <form class="form-box px-3" autocomplete="off" >
+
+                    <label class="text-center">Email</label>
+                    <div class="form-input">
+                        <span><i class="fa-regular fa-user"></i></span>
+
+                        <input type="email" placeholder="Usuario" formControlName="email">
+
+                    </div>
+                    <span class="form-text text-danger" *ngIf="('email')">
+                    </span>
+
+                    <label class="text-center">contraseña</label>
+                    <div class="form-input">
+                        <span><i class="fa fa-key"></i></span>
+
+                        <input type="password" placeholder="Contraseña" formControlName="password">
+
+                    </div>
+                    <span class="form-text text-danger text-center">
+                        la contraseña es requerida
+                    </span>
+
+                    <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-block text-uppercase" >
+                            Iniciar Sesion
+                        </button>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="text-center mb-2">
+                        ¿No tienes cuenta?
+                        <a routerLink="../registro" class="register-link">
+                            Registrate
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+
+<app-footer></app-footer>

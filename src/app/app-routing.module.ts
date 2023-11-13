@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ErrorPageComponent } from './error-page/error-page.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { AvisoPrivComponent } from './aviso-priv/aviso-priv.component';
-import { AcercaDeComponent } from './acerca-de/acerca-de.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { AvisoPrivComponent } from './pages/aviso-priv/aviso-priv.component';
+import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
+import { CursosPageComponent } from './pages/cursos/cursos.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
     component: InicioComponent
   },
   {
-    path: 'avisos',
+    path: 'cursos',
+    component: CursosPageComponent
+  },
+  {
+    path: 'avisopriv',
     component: AvisoPrivComponent
   },
   {

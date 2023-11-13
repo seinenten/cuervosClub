@@ -1,10 +1,10 @@
 html, body { 
     
     height: 100%; 
-
     overscroll-behavior-y: contain;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
+    background-color: #086098d4;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
