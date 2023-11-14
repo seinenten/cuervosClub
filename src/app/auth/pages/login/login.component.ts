@@ -1,6 +1,9 @@
 import { Component, OnInit,AfterViewInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { ValidatorsService } from '../../../services/validators.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +17,10 @@ export class LoginComponent {
   //TodoS inyecciones //
   private fb = inject(FormBuilder);
   private router = inject(Router);
+  private vs = inject( ValidatorsService );
 
   miFormulario: FormGroup = this.fb.group({
-    email: [ '', [ Validators.required, ]  ],
+    email: [ '', [ Validators.required, Validators.pattern( this.vs.emailPattern ) ]  ],
     password: ['', Validators.required]
   });
   
@@ -40,22 +44,7 @@ export class LoginComponent {
 
   login(){
 
-    this.usuarioService.login( this.miFormulario.value )
-      .subscribe(
-        {
-
-          next: () => {
-    
-            //navegar al gestor
-            this.router.navigateByUrl('gestor/inicio');
-
-          },
-          error: err => {
-            // si sucede un error
-            Swal.fire('Error', err.error.msg, 'error');  
-          }
-
-      });
+    console.log('hola');
     
   }
 

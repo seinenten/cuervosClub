@@ -1,1 +1,106 @@
-<p>registro works!</p>
+<app-navbar></app-navbar>
+
+<br>
+<br>
+<div class="container">
+    <div class="row px-3">
+        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+            <div class="img-left d-none d-md-flex"></div>
+
+            <div class="card-body">
+                <h4 class="title text-center mt-4">
+                    Registro
+                </h4>
+
+                <form class="form-box px-3" autocomplete="off" 
+                [formGroup]="miFormulario"
+                (ngSubmit)="register()"
+                >
+
+                    <label class="text-center">Nombre</label>
+                    <div class="form-input">
+                        <span><i class="fa-regular fa-user"></i></span>
+
+                        <input type="text" placeholder="Nombre" formControlName="name">
+
+                    </div>
+                    <span class="form-text text-danger" *ngIf="campoNoEsValido('name')"></span>
+
+                    <label class="text-center">Apellido Paterno</label>
+                    <div class="form-input">
+                        <span><i class="fa-regular fa-user"></i></span>
+
+                        <input type="text" placeholder="Apellido Paterno" formControlName="apellidoP">
+
+                    </div>
+                    <span class="form-text text-danger" *ngIf="campoNoEsValido('apellidoP')"></span>
+
+                    <label class="text-center">Apellido Materno</label>
+                    <div class="form-input">
+                        <span><i class="fa-regular fa-user"></i></span>
+
+                        <input type="text" placeholder="Apellido Materno" formControlName="apellidoM">
+
+                    </div>
+                    <span class="form-text text-danger" *ngIf="campoNoEsValido('apellidoM')"></span>
+
+                    <label class="text-center">Email</label>
+                    <div class="form-input">
+                        <span><i class="fa-regular fa-envelope"></i></span>
+
+                        <input type="email" placeholder="email" formControlName="email">
+
+                    </div>
+                    <span class="form-text text-danger" *ngIf="campoNoEsValido('email')">
+                    </span>
+
+                    <label class="text-center">contraseña</label>
+                    <div class="form-input">
+                        <span><i class="fa fa-key"></i></span>
+
+                        <input type="password" placeholder="Contraseña" formControlName="password">
+
+                    </div>
+                    <span class="form-text text-danger text-center" 
+                        *ngIf="campoNoEsValido('password')">
+                        la contraseña es requerida
+                    </span>
+
+                    <label class="text-center">Repita la contraseña</label>
+                    <div class="form-input">
+                        <span><i class="fa fa-key"></i></span>
+
+                        <input type="password" placeholder="Contraseña" formControlName="password2">
+
+                    </div>
+
+                    <span class="form-text text-danger text-center" 
+                        *ngIf="campoNoEsValido('password2')">
+                        la contraseña es requerida
+                    </span>
+
+                    <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-block text-uppercase"
+                            [disabled]="miFormulario.invalid">
+                            Registrarse
+                        </button>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="text-center mb-2">
+                        ¿Ya tienes cuenta?
+                        <a routerLink="../login" class="register-link">
+                            Inicia sesion
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br>
+
+
+<app-footer></app-footer>

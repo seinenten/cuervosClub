@@ -3,3 +3,11 @@
 .largoImg {
     height: 200px;
 }
+
+.card-body {
+    background-color: #0b73b9;
+}
+
+.card-footer {
+    background-color: rgb(245 97 33 / 89%);
+}

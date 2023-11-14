@@ -12,16 +12,19 @@
                     Inicio de Sesion
                 </h4>
 
-                <form class="form-box px-3" autocomplete="off" >
+                <form class="form-box px-3" autocomplete="off" 
+                [formGroup]="miFormulario"
+                (ngSubmit)="login()"
+                >
 
                     <label class="text-center">Email</label>
                     <div class="form-input">
-                        <span><i class="fa-regular fa-user"></i></span>
+                        <span><i class="fa-regular fa-envelope"></i></span>
 
-                        <input type="email" placeholder="Usuario" formControlName="email">
+                        <input type="email" placeholder="email" formControlName="email">
 
                     </div>
-                    <span class="form-text text-danger" *ngIf="('email')">
+                    <span class="form-text text-danger" *ngIf="campoNoEsValido('email')">
                     </span>
 
                     <label class="text-center">contraseña</label>
@@ -31,12 +34,14 @@
                         <input type="password" placeholder="Contraseña" formControlName="password">
 
                     </div>
-                    <span class="form-text text-danger text-center">
+                    <span class="form-text text-danger text-center" 
+                        *ngIf="campoNoEsValido('password')">
                         la contraseña es requerida
                     </span>
 
                     <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-block text-uppercase" >
+                        <button type="submit" class="btn btn-block text-uppercase"
+                            [disabled]="miFormulario.invalid">
                             Iniciar Sesion
                         </button>
                     </div>
@@ -55,7 +60,7 @@
     </div>
 </div>
 
-<br><br><br>
+<br><br><br><br>
 
 
 <app-footer></app-footer>
