@@ -132,3 +132,15 @@ body{
   .form-box .btn-twitter:hover{
     background: #2eb7e5;
   }
+
+  h4,label {
+    color: #fff!important;
+  }
+
+  a{
+    color: #ff7928!important;
+  }
+
+  div{
+    color: #fff!important;
+  }
