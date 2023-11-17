@@ -4,11 +4,10 @@
 <div class="container">
     <div class="row">
         <h2 class="text-center mb-4 titulos" >Cursos</h2>
-        <div class="col"><component-cursos></component-cursos></div>
-        
-
+        <div class="col" *ngFor="let curso of cursos">
+            <component-cursos [curso]="curso"></component-cursos>
+        </div>
     </div>
-    
 </div>
 
 <br><br>

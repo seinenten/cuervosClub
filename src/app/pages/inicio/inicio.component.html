@@ -10,7 +10,11 @@
     <section class="text-center">
         <h4 class="mb-5 titulos">CURSOS DISPONIBLES</h4>
     
-        <component-cursos></component-cursos>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngFor="let curso of cursos">
+                <component-cursos [curso]="curso"></component-cursos>
+            </div>
+        </div>
 
     </section>
 

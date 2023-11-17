@@ -1,47 +1,14 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-        <div class="card h-100">
-            <img src="../../../assets/imagenes/niños.jpg" class="card-img-top largoImg" alt="niños">
-            <div class="card-body text-center">
-                <h4 class="card-title">Curso para niños</h4>
-                <p class="card-text">
-                    En este curso inscribe a tu pequeñin para que aprenda
-                    desde lo mas basico en nuestro club cuervo.
-                </p>
-            </div>
-            <div class="card-footer text-center">
-                <h5>$ 350</h5>
-            </div>
-        </div>
+
+
+<div class="card h-100">
+    <img [src]="curso.img" class="card-img-top largoImg" [alt]="curso.nombre">
+    <div class="card-body text-center">
+        <h4 class="card-title">{{curso.nombre}}</h4>
+        <p class="card-text">
+            {{curso.descripcion}}
+        </p>
     </div>
-    <div class="col">
-        <div class="card h-100">
-            <img src="../../../assets/imagenes/jovenes.jpg" class="card-img-top largoImg" alt="jovenes">
-            <div class="card-body text-center">
-                <h4 class="card-title">Curso para adultos</h4>
-                <p class="card-text">
-                    En este curso inscribete para aumentar tus capacidades. En nuestro
-                    club de natacion. Cuervos club.
-                </p>
-            </div>
-            <div class="card-footer text-center">
-                <h5>$ 250</h5>
-            </div>
-        </div>
-    </div>  
-    <div class="col">
-        <div class="card h-100">
-            <img src="../../../assets/imagenes/abuelos.jpg" class="card-img-top largoImg" alt="abuelos">
-            <div class="card-body text-center">
-                <h5 class="card-title">Curso para adultos mayores</h5>
-                <p class="card-text">
-                    En este curso inscribete para recobrar tus capacidades cardiovasculares. En nuestro
-                    club de natacion. Cuervos club.
-                </p>
-            </div>
-            <div class="card-footer text-center">
-                <h5>$ 250</h5>
-            </div>
-        </div>
+    <div class="card-footer text-center">
+        <h5>$ {{curso.precio}}</h5>
     </div>
 </div>

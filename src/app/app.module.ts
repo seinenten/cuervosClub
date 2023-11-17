@@ -9,6 +9,7 @@ import { AvisoPrivComponent } from './pages/aviso-priv/aviso-priv.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { CursosPageComponent } from './pages/cursos/cursos.component';
 import { ComponentsModule } from './components/components.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ComponentsModule } from './components/components.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
