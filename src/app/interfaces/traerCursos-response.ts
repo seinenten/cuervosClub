@@ -5,11 +5,26 @@ export interface respuesta {
     cursos: Curso[];
 }
 
+interface _LigaUser {
+    nombre: string;
+    _id: string;
+    img: string;
+}
+
 export interface Curso {
     _id:         string;
-    usuario:     string;
+    usuario:     _LigaUser;
     nombre:      string;
     descripcion: string;
     precio:      number;
+    img?:        string;
+}
+
+export interface CrearCurso {
+    nombre:      string;
+    descripcion: string;
+    precio:      number;
+    usuario?:     _LigaUser;
+    _id?:         string;
     img?:        string;
 }

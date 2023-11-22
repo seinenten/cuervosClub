@@ -1,0 +1,16 @@
+<div class="lista">
+    <mat-accordion *ngFor="let item of sidebarService.menu">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header > 
+            <mat-panel-title>      
+                <div class="titu">
+                    <h2><mat-icon>{{item.icono}}</mat-icon>{{item.titulo}}</h2>
+                </div>                
+            </mat-panel-title>                    
+            </mat-expansion-panel-header>
+            <p class="tit cursor" *ngFor="let men of item.submenu" routerLink="{{men.url}}">{{men.titulo}}</p> 
+        </mat-expansion-panel>        
+    </mat-accordion>
+
+    <mat-list-item (click)="logout()" class="tit cerrar cursor">Cerrar Sesion</mat-list-item>
+</div>

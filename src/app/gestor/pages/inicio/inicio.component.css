@@ -1,0 +1,16 @@
+mat-drawer {
+    width: 300px;
+    background-color: #DCDFDF;
+}
+
+.txt-icon{
+    clear: left;
+    text-align: center;
+    vertical-align: middle;
+    line-height:25px;
+  }
+
+mat-icon{
+    display:inline-block;
+    vertical-align:top;
+}

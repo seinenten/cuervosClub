@@ -12,19 +12,16 @@
                     Registro
                 </h4>
 
-                <form class="form-box px-3" autocomplete="off" 
-                [formGroup]="miFormulario"
-                (ngSubmit)="register()"
-                >
+                <form class="form-box px-3" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
 
                     <label class="text-center">Nombre</label>
                     <div class="form-input">
                         <span><i class="fa-regular fa-user"></i></span>
 
-                        <input type="text" placeholder="Nombre" formControlName="name">
+                        <input type="text" placeholder="Nombre" formControlName="nombre">
 
                     </div>
-                    <span class="form-text text-danger" *ngIf="campoNoEsValido('name')"></span>
+                    <span class="form-text text-danger" *ngIf="campoNoEsValido('nombre')"></span>
 
                     <label class="text-center">Apellido Paterno</label>
                     <div class="form-input">
@@ -61,8 +58,7 @@
                         <input type="password" placeholder="Contraseña" formControlName="password">
 
                     </div>
-                    <span class="form-text text-danger text-center" 
-                        *ngIf="campoNoEsValido('password')">
+                    <span class="form-text text-danger text-center" *ngIf="campoNoEsValido('password')">
                         la contraseña es requerida <br>
                     </span>
 
@@ -74,14 +70,23 @@
 
                     </div>
 
-                    <span class="form-text text-danger text-center" 
-                        *ngIf="campoNoEsValido('password2')">
+                    <span class="form-text text-danger text-center" *ngIf="campoNoEsValido('password2')">
                         las contraseñas deben ser iguales
                     </span>
 
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" formControlName="condiciones">
+                            <label class="custom-control-label">Aceptar Terminos y Condiciones</label>
+
+                            <span class="form-text text-danger" *ngIf="aceptaTerminos()">
+                                Debe de aceptar los terminos
+                            </span>
+                        </div>
+                    </div>
+
                     <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-block text-uppercase"
-                            [disabled]="miFormulario.invalid">
+                        <button type="submit" class="btn btn-block text-uppercase" [disabled]="miFormulario.invalid">
                             Registrarse
                         </button>
                     </div>

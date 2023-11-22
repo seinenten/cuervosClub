@@ -7,7 +7,7 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 export class ValidatorsService {
 
   public emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
-
+  public nombresPattern ="^[A-Z\u00E0-\u00FCÿ\u00f1\u00d1][A-Za-z\u00E0-\u00FCÿ\u00f1\u00d1]+ *[A-Za-z\u00E0-\u00FCÿ\u00f1\u00d1]+ *[A-Za-z\u00E0-\u00FCÿ\u00f1\u00d1]+$";
   public passPattern =/(?=(.*[0-9]))(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{5,}/;
 
   public contraseñaSonIguales( field1: string, field2: string ) {

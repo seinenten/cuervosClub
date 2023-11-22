@@ -18,6 +18,7 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private vs = inject( ValidatorsService );
+  private usuarioService = inject(UsuarioService);
 
   miFormulario: FormGroup = this.fb.group({
     email: [ '', [ Validators.required, Validators.pattern( this.vs.emailPattern ) ]  ],
@@ -44,8 +45,17 @@ export class LoginComponent {
 
   login(){
 
-    console.log('hola');
-    
+    this.usuarioService.login( this.miFormulario.value )
+        .subscribe(
+          {
+            next: () => {
+              this.router.navigateByUrl('gestor/inicio')
+            },
+            error:err => {
+              // si sucede un error
+              Swal.fire('Error', err.error.msg, 'error');  
+            },
+          });
   }
 
 }

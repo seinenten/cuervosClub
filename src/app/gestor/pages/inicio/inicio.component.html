@@ -1,0 +1,18 @@
+<app-header-gestor></app-header-gestor>
+<mat-drawer-container class="example-container" hasBackdrop="true">
+    <mat-drawer #drawer mode="over" position="start">
+        <app-navbar-gestor></app-navbar-gestor>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        
+        <br><br>
+        <button (click)="drawer.toggle()" class="btn btn-secondary" ><i class="fa fa-bars"></i> Menu</button>
+        <div class="container">
+            <div class="text-center hola">
+                <h2 class="txt-icon">Hola! Bienvenido<mat-icon>free_breakfast</mat-icon></h2>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </mat-drawer-content>
+</mat-drawer-container>
