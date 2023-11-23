@@ -36,5 +36,43 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "cursosPequeños-Api",
+      "urls": [
+        "https://cursos-server.onrender.com/api/cursos?limite=3"
+      ],
+      "cacheConfig": {
+        "maxSize": 3,
+        "maxAge": "24h",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    },
+    {
+      "name": "cursos-Api",
+      "urls": [
+        "https://cursos-server.onrender.com/api/cursos"
+      ],
+      "cacheConfig": {
+        "maxSize": 15,
+        "maxAge": "24h",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    },
+    {
+      "name": "usuarios-Api",
+      "urls": [
+        "https://cursos-server.onrender.com/api/usuarios?desde=0"
+      ],
+      "cacheConfig": {
+        "maxSize": 34,
+        "maxAge": "24h",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    } 
   ]
 }
