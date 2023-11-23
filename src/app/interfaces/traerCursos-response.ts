@@ -12,11 +12,11 @@ interface _LigaUser {
 }
 
 export interface Curso {
-    _id:         string;
-    usuario:     _LigaUser;
     nombre:      string;
     descripcion: string;
     precio:      number;
+    usuario?:     _LigaUser;
+    _id?:         string;
     img?:        string;
 }
 

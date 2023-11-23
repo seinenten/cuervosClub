@@ -1,0 +1,107 @@
+<app-header-gestor></app-header-gestor>
+<mat-drawer-container class="example-container" hasBackdrop="true">
+    <mat-drawer #drawer mode="over" position="start">
+        <app-navbar-gestor></app-navbar-gestor>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <br /><br />
+        <button (click)="drawer.toggle()" class="btn btn-secondary">
+            <i class="fa fa-bars"></i> Menu
+        </button>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Nuevo curso</h3>
+                            <h4 class="card-subtitle text-center">Actualizar informacion</h4>
+
+                            <form class="form-horizontal p-t-20" [formGroup]="cursoForm" (submit)="guardarCurso()">
+                                <div class="form-group row" *ngIf="cursoSeleccionado">
+                                    <label for="exampleInputuname3" class="col-sm-3 control-label">Foto</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <td class="text-center">
+                                                <img [src]="cursoSeleccionado.img! | imagen : 'cursos'"
+                                                    [alt]="cursoSeleccionado.nombre" class="w140 cursor"
+                                                    (click)="abrirModal(cursoSeleccionado)" />
+                                            </td>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-person-swimming"></i>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Nombre del curso"
+                                                formControlName="nombre" />
+                                        </div>
+                                    </div>
+                                    <div align="center">
+                                        <span class="form-text text-danger" *ngIf="campoNoEsValido('nombre')">
+                                            Nombre no valido
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="exampleInputuname3" class="col-sm-3 control-label">Descripcion</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="ti-text"></i>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Descripcion del curso"
+                                                formControlName="descripcion" />
+                                        </div>
+                                        <div align="center">
+                                            <span class="form-text text-danger" *ngIf="campoNoEsValido('descripcion')">
+                                                Descripcion no valido no valido
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="exampleInputuname3" class="col-sm-3 control-label">Precio</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="ti-text"></i>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="precio del curso"
+                                                formControlName="precio" />
+                                        </div>
+                                        <div align="center">
+                                            <span class="form-text text-danger" *ngIf="campoNoEsValido('precio')">
+                                                Precio no valido
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row m-b-0">
+                                    <div class="offset-sm-3 col-sm-9">
+                                        <button type="submit" [disabled]="cursoForm.invalid"
+                                            class="btn btn-success waves-effect waves-light">
+                                            <i class="fa fa-save"></i>
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+<app-modal-imagen></app-modal-imagen>

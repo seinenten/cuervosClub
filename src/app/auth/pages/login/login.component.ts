@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewInit, inject } from '@angular/core';
+import { Component, OnInit,AfterViewInit, inject, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -10,7 +10,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent  {
+
   
   public formSubmitted = false;
 
@@ -21,8 +22,9 @@ export class LoginComponent {
   private usuarioService = inject(UsuarioService);
 
   miFormulario: FormGroup = this.fb.group({
-    email: [ '', [ Validators.required, Validators.pattern( this.vs.emailPattern ) ]  ],
-    password: ['', Validators.required]
+    email: [ localStorage.getItem('email') || '', [ Validators.required, Validators.pattern( this.vs.emailPattern ) ]  ],
+    password: ['', Validators.required],
+    remember: [false]
   });
   
   get emailErrorMsg(): string {
@@ -49,6 +51,14 @@ export class LoginComponent {
         .subscribe(
           {
             next: () => {
+              if( this.miFormulario.get('remember')?.value ){
+                //Si el usuario gusta que se recuerde su cuenta
+                localStorage.setItem('email', this.miFormulario.get('email')?.value);
+              }else{
+                localStorage.removeItem('email');
+              }
+
+              
               this.router.navigateByUrl('gestor/inicio')
             },
             error:err => {

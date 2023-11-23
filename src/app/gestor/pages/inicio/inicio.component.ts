@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/users.models';
-import { SidebarService } from 'src/app/services/sidebar.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -9,15 +8,20 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent {
+export class InicioComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario!: Usuario;
 
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
   ) {
-    this.usuario = usuarioService.usuario;
+    
+  }
+
+
+  ngOnInit(): void {
+    this.usuario = this.usuarioService.usuario;
   }
 
 

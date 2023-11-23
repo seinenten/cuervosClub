@@ -39,6 +39,17 @@
                         la contraseña es requerida
                     </span>
 
+                    <div class="mb-3">
+                        <div class="form-check">
+
+                            <input type="checkbox" class="form-check-input"
+                                    formControlName="remember" id="cb1">
+
+                            <label class="custom-control-label" for="cb1">Recuerdame</label>
+
+                        </div>
+                    </div>
+
                     <div class="mb-3 text-center">
                         <button type="submit" class="btn btn-block text-uppercase"
                             [disabled]="miFormulario.invalid">

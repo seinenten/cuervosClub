@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, NgZone } from '@angular/core';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
-import { Usuario } from '../models/users.models';
-import { loginForm } from '../interfaces/login-form.interface';
+import { Usuario } from 'src/app/models/users.models';
 import { Usuarios } from '../interfaces/auth.interface';
+import { loginForm } from '../interfaces/login-form.interface';
 import { CargarUsuario } from '../interfaces/cargar.usuarios.interfaces';
+
+
+declare const google: any;
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +23,9 @@ export class UsuarioService {
   public usuario!: Usuario;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
+    private ngZone: NgZone
   ) { }
 
 
@@ -59,17 +64,36 @@ export class UsuarioService {
 
 
   logout(){
+    //Si es sesion de google
+    if( this.usuario.google ){
+
+      google.accounts.id.revoke( this.usuario.email  , () => {
       
-    localStorage.removeItem('token');
+        this.ngZone.run(() => {
+          localStorage.removeItem('menu');
+          localStorage.removeItem('token');
+          localStorage.removeItem('aud');
+          this.router.navigateByUrl('auth/login');
+        })
+      } )
+    }else{
+      localStorage.removeItem('token');
       localStorage.removeItem('menu');
       if(localStorage.getItem('aud'))
         localStorage.removeItem('aud');
+    }
+
+    
 
   }
 
   //En caso del que token no sea valido borrar el local storage
 
   validarToken(): Observable<boolean> {
+
+    google.accounts.id.initialize({
+      client_id: localStorage.getItem('aud')
+    });
 
     return this.http.get(`${this.baseUrl }/login/renew`, {
       headers:{
@@ -112,6 +136,17 @@ export class UsuarioService {
                   this.guardarLocalStorage(resp.token, resp.menu);
                 })
               )
+  }
+
+
+  loginGoogle( token: string ){
+    return this.http.post( `${ this.baseUrl }/login/google`, { token } )
+            .pipe(
+              tap( (resp: any) => {
+                //Coloco el token en el storage
+                this.guardarLocalStorage(resp.token, resp.menu, resp.aud);
+              })
+            )
   }
 
   actualizarPerfil( data: { email: string, nombre: string, role: string, status: boolean } ){
@@ -170,5 +205,9 @@ export class UsuarioService {
     return this.http.put( `${ this.baseUrl }/usuarios/${ usuario.uid }`, usuario , this.headers );
 
   }
+
+
+
+
 
 }

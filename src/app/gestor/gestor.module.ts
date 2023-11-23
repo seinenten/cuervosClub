@@ -7,13 +7,23 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.component';
+import { CursosComponent } from './pages/mantenimientos/cursos/cursos.component';
+import { CursoComponent } from './pages/mantenimientos/cursos/curso.component';
+import { PerfilComponent } from './pages/mantenimientos/perfil/perfil.component';
+import { ImagenesModule } from '../imagenes/imagenes.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
   declarations: [
     InicioComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    UsuariosComponent,
+    CursosComponent,
+    CursoComponent,
+    PerfilComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +31,8 @@ import { MaterialModule } from '../material/material.module';
     ReactiveFormsModule,
     MaterialModule,
     FormsModule,
-    
+    ImagenesModule,
+    PipesModule
   ]
 })
 export class GestorModule { }
